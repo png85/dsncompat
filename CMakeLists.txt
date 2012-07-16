@@ -6,11 +6,24 @@ project(libdsncompat)
 cmake_minimum_required(VERSION 2.8)
 
 #
+# add our custom .cmake macros to CMake's module path
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+#
 # CTest/CDash related options; see CTestConfig.cmake for more info!
 include(CTest)
 enable_testing()
 set(BUILDNAME "${BUILDNAME}" CACHE STRING "Name of build on CDash dashboard")
 mark_as_advanced(BUILDNAME)
+
+#
+# CPack configuration to build binary packages
+set(CPACK_PACKAGE_DESCRIPTION "#das-system Networks compat library")
+set(CPACK_PACKAGE_VENDOR "#das-system Networks GbR")
+set(CPACK_PACKAGE_VERSION_MAJOR "0")
+set(CPACK_PACKAGE_VERSION_MINOR "99")
+set(CPACK_PACKAGE_VERSION_PATCH "1")
+include(CPack)
 
 #
 # LLVM/clang specific options; see README for info on how to use this!
@@ -46,7 +59,8 @@ endif(USE_CLANG)
 set(DSNCOMPAT_LIBNAME "dsncompat")
 set(DSNCOMPAT_SOURCES)
 
-
+#
+# Include macros for platform checks
 include(CheckFunctionExists)
 
 #
@@ -98,3 +112,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 #
 # Build the actual library using only the required source files
 add_library(dsncompat ${DSNCOMPAT_SOURCES})
+
+
+#
+# Check if target has Doxygen installed and add a doc target if it does
+include(DocTarget)
