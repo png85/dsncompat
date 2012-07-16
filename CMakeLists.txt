@@ -22,7 +22,7 @@ set(CPACK_PACKAGE_DESCRIPTION "#das-system Networks compat library")
 set(CPACK_PACKAGE_VENDOR "#das-system Networks GbR")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
 set(CPACK_PACKAGE_VERSION_MINOR "99")
-set(CPACK_PACKAGE_VERSION_PATCH "1")
+set(CPACK_PACKAGE_VERSION_PATCH "2")
 include(CPack)
 
 #
