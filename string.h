@@ -1,4 +1,4 @@
-/* \file
+/** \file
  * \brief Functions for operating on C-style strings
  *
  * \author Peter 'png' Hille <peter@das-system-networks.de>
@@ -17,7 +17,7 @@ extern "C" {
 #endif /* !HAVE_STRICMP */
 
 #ifndef HAVE_STRNICMP
-  int strnicmp(const char* s1, const char* s2);
+  int strnicmp(const char* s1, const char* s2, size_t n);
 #endif /* !HAVE_STRNICMP */
 
 #ifndef HAVE_STRCASECMP

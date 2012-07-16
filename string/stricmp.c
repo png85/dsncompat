@@ -1,4 +1,4 @@
-/* \file
+/** \file
  * \brief Implementation of stricmp
  *
  * \author Peter 'png' Hille <peter@das-system-networks.de>
@@ -8,7 +8,7 @@
 #include <string.h>
 #include <assert.h>
 
-/* \brief Compare Strings without Case Sensitivity
+/** \brief Compare Strings without Case Sensitivity
  *
  * stricmp compares s1 and s2 without sensitivity to case. All alphabetic
  * characters in the two arguments s1 and s2 are converted to lowercase
@@ -18,10 +18,21 @@
  * function are expected to contain a null character (\0) at the end of the
  * string.
  *
+ * \param s1 Pointer to a \0-terminated C string
+ * \param s2 Pointer to a \0-terminated C string
+ *
  * \return A value indicating the relationship between the two strings similar
  * to the one returned by strcmp(3)
  *
  * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstricmp.htm
+ * \see strcasecmp
+ * \see strnicmp
+ *
+ * \note In debug builds the two pointer arguments are checked for NULL
+ * values using assert(3)
+ *
+ * \attention This really shouldn't be used in new projects because it doesn't
+ * do any bounds checking on the underlying memory areas!
  */
 int stricmp(const char* s1, const char* s2) {
   assert(s1 != NULL);

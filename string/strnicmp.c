@@ -1,4 +1,4 @@
-/* \file
+/** \file
  * \brief Implementation of strnicmp
  *
  * \author Peter 'png' Hille <peter@das-system-networks.de>
@@ -8,7 +8,7 @@
 #include <string.h>
 #include <assert.h>
 
-/* \brief Compare Strings without Case Sensitivity
+/** \brief Compare Strings without Case Sensitivity
  *
  * stricmp compares, at most, the first n characters of s1 and s2 without
  * sensitivity to case. All alphabetic characters in the two arguments
@@ -18,10 +18,18 @@
  * function are expected to contain a null character (\0) at the end of the
  * string.
  *
+ * \param s1 Pointer to a \0-terminated C string
+ * \param s2 Pointer to a \0-terminated C string
+ * \param n Max number of characters to compare
+ *
  * \return A value indicating the relationship between the two strings similar
  * to the one returned by strcmp(3)
  *
  * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstrnicmp.htm
+ * \see strncasecmp
+ *
+ * \note In debug builds the two pointer arguments are checked for NULL values
+ * using assert(3)
  */
 int strnicmp(const char* s1, const char* s2, size_t n) {
   assert(s1 != NULL);
