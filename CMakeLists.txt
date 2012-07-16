@@ -54,8 +54,10 @@ include(CheckFunctionExists)
 check_function_exists(strcasecmp HAVE_STRCASECMP)
 if(NOT HAVE_STRCASECMP)
   set(DSNCOMPAT_SOURCES ${DSNCOMPAT_SOURCES} string/strcasecmp.c)
+  add_executable(test-strcasecmp string/test-strcasecmp.c)
+  target_link_libraries(test-strcasecmp ${DSNCOMPAT_LIBNAME})
+  add_test(strcasecmp test-strcasecmp)
 endif(NOT HAVE_STRCASECMP)
-
 
 #
 # Check for strncasecmp (case-insensitive strncmp())

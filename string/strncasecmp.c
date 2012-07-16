@@ -19,8 +19,6 @@
  *
  * \return A value indicating the relationship between the two strings similar
  * to the one returned by strcmp(3)
- *
- * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstrnicmp.htm
  */
 int strncasecmp(const char* s1, const char* s2, size_t n) {
 #ifdef HAVE_STRNICMP
