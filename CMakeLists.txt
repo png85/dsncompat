@@ -53,15 +53,15 @@ include(CheckFunctionExists)
 # Check for strcasecmp (case-insensitive strcmp())
 check_function_exists(strcasecmp HAVE_STRCASECMP)
 if(NOT HAVE_STRCASECMP)
-
+  set(DSNCOMPAT_SOURCES ${DSNCOMPAT_SOURCES} string/strcasecmp.c)
 endif(NOT HAVE_STRCASECMP)
 
 
 #
 # Check for strncasecmp (case-insensitive strncmp())
-check_function_exists(strcasecmp HAVE_STRNCASECMP)
+check_function_exists(strncasecmp HAVE_STRNCASECMP)
 if(NOT HAVE_STRNCASECMP)
-
+  set(DSNCOMPAT_SOURCES ${DSNCOMPAT_SOURCES} string/strncasecmp.c)
 endif(NOT HAVE_STRNCASECMP)
 
 #

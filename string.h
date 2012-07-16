@@ -6,6 +6,8 @@
 #ifndef DSNCOMPAT_STRING_H
 #define DSNCOMPAT_STRING_H
 
+#include <stddef.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -17,6 +19,14 @@ extern "C" {
 #ifndef HAVE_STRNICMP
   int strnicmp(const char* s1, const char* s2);
 #endif /* !HAVE_STRNICMP */
+
+#ifndef HAVE_STRCASECMP
+  int strcasecmp(const char* s1, const char* s2);
+#endif /* !HAVE_STRCASECMP */
+
+#ifndef HAVE_STRNCASECMP
+  int strncasecmp(const char* s1, const char* s2, size_t n);
+#endif
 
 #ifdef __cplusplus
 };
