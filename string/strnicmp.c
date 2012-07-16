@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <stddef.h>
 #include <string.h>
+#include <assert.h>
 
 /* \brief Compare Strings without Case Sensitivity
  *
@@ -23,6 +24,9 @@
  * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstrnicmp.htm
  */
 int strnicmp(const char* s1, const char* s2, size_t n) {
+  assert(s1 != NULL);
+  assert(s2 != NULL);
+
 #ifdef HAVE_STRNCASECMP
   return strncasecmp(s1, s2, n);
 #else
