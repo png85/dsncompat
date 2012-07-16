@@ -64,6 +64,9 @@ endif(NOT HAVE_STRCASECMP)
 check_function_exists(strncasecmp HAVE_STRNCASECMP)
 if(NOT HAVE_STRNCASECMP)
   set(DSNCOMPAT_SOURCES ${DSNCOMPAT_SOURCES} string/strncasecmp.c)
+  add_executable(test-strncasecmp string/test-strncasecmp.c)
+  target_link_libraries(test-strncasecmp ${DSNCOMPAT_LIBNAME})
+  add_test(strncasecmp test-strncasecmp)
 endif(NOT HAVE_STRNCASECMP)
 
 #
