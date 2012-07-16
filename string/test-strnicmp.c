@@ -7,13 +7,13 @@ int main(int argc, char** argv) {
   char foo[255] = "foo", bar[255] = "bar";
   int r1, r2;
 
-  printf("running tests for string/stricmp.c:\n");
+  printf("running tests for string/strnicmp.c:\n");
 
   /* test comparision of two different strings */
   printf("-- #1: comparision of two different strings\n"
 	 "\tfoo = '%s', bar = '%s'\n", foo, bar);
-  r1 = stricmp(foo, bar, 255);
-  r2 = stricmp(bar, foo, 255);
+  r1 = strnicmp(foo, bar, 255);
+  r2 = strnicmp(bar, foo, 255);
   printf("\tr1 = strnicmp(foo, bar, 255); = %d\n"
 	 "\tr2 = strnicmp(bar, foo, 255); = %d\n", r1, r2);
   if (r1 != -r2) {
@@ -30,8 +30,8 @@ int main(int argc, char** argv) {
 	 "\tfoo = '%s', bar = '%s'\n", foo, bar);
   r1 = strnicmp(foo, bar, 255);
   r2 = strnicmp(bar, foo, 255);
-  printf("\tr1 = stricmp(foo, bar); = %d\n"
-	 "\tr2 = stricmp(bar, foo); = %d\n", r1, r2);
+  printf("\tr1 = strnicmp(foo, bar, 255); = %d\n"
+	 "\tr2 = strnicmp(bar, foo, 255); = %d\n", r1, r2);
   if (r1 != 0 || r2 != 0) {
     printf("!! #2: one of the return values isn't zero; "
 	   "comparision failed!\n");
