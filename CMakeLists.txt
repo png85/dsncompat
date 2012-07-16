@@ -49,6 +49,20 @@ set(DSNCOMPAT_SOURCES)
 
 include(CheckFunctionExists)
 
+#
+# Check for strcasecmp (case-insensitive strcmp())
+check_function_exists(strcasecmp HAVE_STRCASECMP)
+if(NOT HAVE_STRCASECMP)
+
+endif(NOT HAVE_STRCASECMP)
+
+
+#
+# Check for strncasecmp (case-insensitive strncmp())
+check_function_exists(strcasecmp HAVE_STRNCASECMP)
+if(NOT HAVE_STRNCASECMP)
+
+endif(NOT HAVE_STRNCASECMP)
 
 #
 # Check for stricmp (case-insensitive strcmp())

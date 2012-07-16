@@ -3,7 +3,9 @@
  *
  * \author Peter 'png' Hille <peter@das-system-networks.de>
  */
+#include "config.h"
 #include <ctype.h>
+#include <string.h>
 
 /* \brief Compare Strings without Case Sensitivity
  *
@@ -21,6 +23,9 @@
  * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstricmp.htm
  */
 int stricmp(const char* s1, const char* s2) {
+#ifdef HAVE_STRCASECMP
+  return strcasecmp(s1, s2)
+#else
   while (tolower((unsigned char) *s1) == tolower((unsigned char) *s2)) {
     if (*s1 == '\0')
       return 0;
@@ -29,6 +34,7 @@ int stricmp(const char* s1, const char* s2) {
 
   return (int) tolower((unsigned char) *s1) -
     (int) tolower((unsigned char) *s2);
+#endif /* !HAVE_STRCASECMP */
 }
 
 

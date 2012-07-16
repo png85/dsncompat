@@ -5,6 +5,7 @@
  */
 #include <ctype.h>
 #include <stddef.h>
+#include <string.h>
 
 /* \brief Compare Strings without Case Sensitivity
  *
@@ -22,6 +23,9 @@
  * \see http://publib.boulder.ibm.com/infocenter/iseries/v7r1m0/index.jsp?topic=%2Frtref%2Fstrnicmp.htm
  */
 int strnicmp(const char* s1, const char* s2, size_t n) {
+#ifdef HAVE_STRNCASECMP
+  return strncasecmp(s1, s2, n);
+#else
   if (n == 0)
     return 0;
 
@@ -34,4 +38,5 @@ int strnicmp(const char* s1, const char* s2, size_t n) {
   } while (--n != 0);
 
   return 0;
+#endif /* !HAVE_STRNCASECMP */
 }
