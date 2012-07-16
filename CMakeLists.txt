@@ -5,13 +5,50 @@
 project(libdsncompat)
 cmake_minimum_required(VERSION 2.8)
 
+#
+# CTest/CDash related options; see CTestConfig.cmake for more info!
 include(CTest)
 enable_testing()
+set(BUILDNAME "${BUILDNAME}" CACHE STRING "Name of build on CDash dashboard")
+mark_as_advanced(BUILDNAME)
+
+#
+# LLVM/clang specific options; see README for info on how to use this!
+option(USE_CLANG "build application with clang" OFF)
+if(USE_CLANG)
+  # Use clang for C code
+  set(CMAKE_C_COMPILER "clang")
+  set(CMAKE_C_FLAGS "-Wall -std=c99")
+  set(CMAKE_C_FLAGS_DEBUG "-g")
+  set(CMAKE_C_FLAGS_MINSIZEREL "-Os -DNDEBUG")
+  set(CMAKE_C_FLAGS_RELEASE "-O4 -DNDEBUG")
+  set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+
+  # Use clang++ for C++ code
+  set(CMAKE_CXX_COMPILER "clang++")
+  set(CMAKE_CXX_FLAGS "-Wall")
+  set(CMAKE_CXX_FLAGS_DEBUG "-g")
+  set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O4 -DNDEBUG")
+  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+
+  # Use llvm binutils for linking
+  set(CMAKE_AR "llvm-ar-3.0")
+  set(CMAKE_LINKER "llvm-ld-3.0")
+  set(CMAKE_NM "llvm-nm-3.0")
+  set(CMAKE_OBJDUMP "llvm-objdump-3.0")
+  # ranlib is currently disabled due to some symbol breakage --png
+  #set(CMAKE_RANLIB "llvm-ranlib-3.0")
+endif(USE_CLANG)
+
+#
+# Name and source file list of our library
+set(DSNCOMPAT_LIBNAME "dsncompat")
+set(DSNCOMPAT_SOURCES)
+
 
 include(CheckFunctionExists)
 
-set(DSNCOMPAT_LIBNAME "dsncompat")
-set(DSNCOMPAT_SOURCES)
 
 #
 # Check for stricmp (case-insensitive strcmp())
