@@ -44,7 +44,6 @@ const char* strtoupper(char* s) {
  */
 const char* strntoupper(char* s, size_t n) {
   assert(s != NULL);
-  assert(n >= 0);
 
   if (n == 0)
     return s;
