@@ -3,6 +3,7 @@
  */
 #include <ctype.h>
 #include <stddef.h>
+#include <assert.h>
 
 /** \brief Convert string to uppercase
  *

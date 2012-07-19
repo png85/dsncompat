@@ -59,6 +59,10 @@ endif(USE_CLANG)
 set(DSNCOMPAT_LIBNAME "dsncompat")
 set(DSNCOMPAT_SOURCES string/strtoupper.c string/strtolower.c)
 
+add_executable(test-strtoupper string/test-strtoupper.c)
+target_link_libraries(test-strtoupper ${DSNCOMPAT_LIBNAME})
+add_test(test-strtoupper test-strtoupper)
+
 #
 # Include macros for platform checks
 include(CheckFunctionExists)
