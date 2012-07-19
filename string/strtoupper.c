@@ -16,7 +16,7 @@
  * \note In debug builds the given pointer is checked for NULL values
  * using assert(3)
  */
-const char* strtoupper(char* s) {
+char* strtoupper(char* s) {
   assert(s != NULL);
 
   char* p = s;
@@ -42,7 +42,7 @@ const char* strtoupper(char* s) {
  * \note In debug builds the given pointer is checked for NULL values
  * using assert(3)
  */
-const char* strntoupper(char* s, size_t n) {
+char* strntoupper(char* s, size_t n) {
   assert(s != NULL);
 
   if (n == 0)

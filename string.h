@@ -28,11 +28,11 @@ extern "C" {
   int strncasecmp(const char* s1, const char* s2, size_t n);
 #endif
 
-  const char* strtoupper(char* s);
-  const char* strntoupper(char* s, size_t n);
+  char* strtoupper(char* s);
+  char* strntoupper(char* s, size_t n);
 
-  const char* strtolower(char* s);
-  const char* strntolower(char* s, size_t n);
+  char* strtolower(char* s);
+  char* strntolower(char* s, size_t n);
 
 #ifdef __cplusplus
 };

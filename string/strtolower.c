@@ -16,7 +16,7 @@
  * \note In debug builds the given pointer is checked for NULL values
  * using assert(3)
  */
-const char* strtolower(char* s) {
+char* strtolower(char* s) {
   assert(s != NULL);
 
   char* p = s;
@@ -41,7 +41,7 @@ const char* strtolower(char* s) {
  * \note In debug builds the given pointer is checked for NULL values
  * using assert(3)
  */
-const char* strntolower(char* s, size_t n) {
+char* strntolower(char* s, size_t n) {
   assert(s != NULL);
 
   if (n == 0)
