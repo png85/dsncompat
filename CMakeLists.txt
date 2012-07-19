@@ -57,7 +57,7 @@ endif(USE_CLANG)
 #
 # Name and source file list of our library
 set(DSNCOMPAT_LIBNAME "dsncompat")
-set(DSNCOMPAT_SOURCES)
+set(DSNCOMPAT_SOURCES string/strtoupper.c string/strtolower.c)
 
 #
 # Include macros for platform checks
