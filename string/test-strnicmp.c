@@ -3,6 +3,8 @@
 
 #include "string.h"
 
+extern int strnicmp(const char*, const char*, size_t);
+
 int main(int argc, char** argv) {
   char foo[255] = "foo", bar[255] = "bar";
   int r1, r2;
