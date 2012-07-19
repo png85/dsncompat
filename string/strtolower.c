@@ -3,6 +3,7 @@
  */
 #include <ctype.h>
 #include <stddef.h>
+#include <assert.h>
 
 /** \brief Convert string to lower case
  *
@@ -42,7 +43,6 @@ const char* strtolower(char* s) {
  */
 const char* strntolower(char* s, size_t n) {
   assert(s != NULL);
-  assert(n >= 0);
 
   if (n == 0)
     return s;
