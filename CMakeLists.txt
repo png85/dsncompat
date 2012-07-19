@@ -63,6 +63,10 @@ add_executable(test-strtoupper string/test-strtoupper.c)
 target_link_libraries(test-strtoupper ${DSNCOMPAT_LIBNAME})
 add_test(test-strtoupper test-strtoupper)
 
+add_executable(test-strtolower string/test-strtolower.c)
+target_link_libraries(test-strtolower ${DSNCOMPAT_LIBNAME})
+add_test(test-strtolower test-strtolower)
+
 #
 # Include macros for platform checks
 include(CheckFunctionExists)
