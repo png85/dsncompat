@@ -58,6 +58,7 @@ endif(USE_CLANG)
 # Name and source file list of our library
 set(DSNCOMPAT_LIBNAME "dsncompat")
 set(DSNCOMPAT_SOURCES string/strtoupper.c string/strtolower.c)
+set(DSNCOMPAT_HEADERS string.h)
 
 if(BUILD_TESTING)
   add_executable(test-strtoupper string/test-strtoupper.c)
@@ -128,8 +129,12 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 #
 # Build the actual library using only the required source files
 add_library(dsncompat ${DSNCOMPAT_SOURCES})
-
+install(TARGETS dsncompat ARCHIVE DESTINATION lib)
 
 #
 # Check if target has Doxygen installed and add a doc target if it does
 include(DocTarget)
+
+install(FILES ${DSNCOMPAT_HEADERS} DESTINATION include/dsncompat)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/config.h DESTINATION include/dsncompat)
+
