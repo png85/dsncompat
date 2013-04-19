@@ -58,7 +58,7 @@ endif(USE_CLANG)
 # Name and source file list of our library
 set(DSNCOMPAT_LIBNAME "dsncompat")
 set(DSNCOMPAT_SOURCES string/strtoupper.c string/strtolower.c)
-set(DSNCOMPAT_HEADERS string.h)
+set(DSNCOMPAT_HEADERS string.h nullptr.h static_assert.h)
 
 if(BUILD_TESTING)
   add_executable(test-strtoupper string/test-strtoupper.c)
