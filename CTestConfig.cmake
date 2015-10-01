@@ -1,12 +1,15 @@
+## This file should be placed in the root directory of your project.
+## Then modify the CMakeLists.txt file in the root directory of your
+## project to incorporate the testing dashboard.
+##
+## # The following are required to submit to the CDash dashboard:
+##   ENABLE_TESTING()
+##   INCLUDE(CTest)
+
 set(CTEST_PROJECT_NAME "dsncompat")
 set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 
-if(NOT DEFINED CTEST_DROP_METHOD)
-  set(CTEST_DROP_METHOD "http")
-endif(NOT DEFINED CTEST_DROP_METHOD)
-
-if(CTEST_DROP_METHOD STREQUAL "http")
-  set(CTEST_DROP_SITE "harpy.png.das-system.vpn")
-  set(CTEST_DROP_LOCATION "/cdash/submit.php?project=dsncompat")
-  set(CTEST_TRIGGER_SITE "http://${CTEST_DROP_SITE}/")
-endif(CTEST_DROP_METHOD STREQUAL "http")
+set(CTEST_DROP_METHOD "http")
+set(CTEST_DROP_SITE "cdash.das-system-networks.de")
+set(CTEST_DROP_LOCATION "/submit.php?project=dsncompat")
+set(CTEST_DROP_SITE_CDASH TRUE)
